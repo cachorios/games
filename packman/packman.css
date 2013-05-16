@@ -1,0 +1,112 @@
+body{
+    font-size: 65%;
+    background-color: black;
+    margin: 0;
+}
+
+#emboltura{
+    margin-top: 0;
+    margin-left: auto;
+    margin-right: auto;
+    width: 978px;
+}
+#cabecera{
+    color: darkred;
+    font-weight: bold;
+    background-color: cadetblue;
+    font-size: 18px;
+    display: block;
+    background-color: cadetblue;
+    line-height: 30px;
+    padding-left: 10px;
+    border-bottom: darkslategray solid medium;
+}
+
+footer{
+    background-color: cadetblue;
+    font-size: 14px;
+    line-height: 28px;
+    padding-left: 10px;
+    border-top: darkslategray solid medium;
+}
+
+footer div {
+    display: inline-block;
+    width: 130px;
+}
+
+#puntos,
+#nivel,
+#tiempo,
+#tiempo_max,
+#food
+{
+    color: darkred;
+    font-size: 18px;
+    font-weight: bold;
+
+}
+
+.jugador,
+.jugador-left,
+.jugador-top,
+.jugador-right,
+.jugador-down,
+.alimento,
+.pared,
+.empty
+{
+    width: 27px;
+    height: 25px;
+    border: 0;
+    display: inline-block;
+
+
+}
+
+
+.alimento1{
+    background: url('img/6.png') no-repeat center center ;
+}
+.alimento2{
+    background: url('img/8.png') no-repeat center center ;
+}
+.alimento3{
+    background: url('img/9.png') no-repeat center center ;
+}
+.alimento4{
+    background: url('img/10.png') no-repeat center center ;
+}
+
+
+.pared{
+    background: url('img/block.png') no-repeat center center ;
+}
+
+.empty{
+    background: url('img/empty.png') no-repeat center center ;
+}
+
+#pantalla:after{
+    clear: both;
+}
+#pantalla {
+    /*width: 978px;*/
+    background: url('img/green.jpg')  center center ;
+}
+
+.jugador {
+    background: url('img/1.png') no-repeat center center ;
+}
+.jugador-left {
+    background: url('img/2.png') no-repeat center center ;
+}
+.jugador-top {
+    background: url('img/4.png') no-repeat center center ;
+}
+.jugador-right {
+    background: url('img/5.png') no-repeat center center ;
+}
+.jugador-down {
+    background: url('img/7.png') no-repeat center center ;
+}

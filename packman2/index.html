@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="packman.css"  rel="stylesheet">
+    <link rel="stylesheet" href="simpleplayer.css" type="text/css">
+    <script src="jquery.min.js"  type="text/javascript" ></script>
+    <script src="audio-fx.js" type="text/javascript" ></script>
+    <script src="jquery.timer.js" type="text/javascript"></script>
+    <script src="lar.jugador.js" type="text/javascript"></script>
+    <script src="lar.phantom.js" type="text/javascript"></script>
+
+    <script src="packman.js" type="text/javascript"></script>
+<head><title>Mi PAcMAn</title></head>
+</head>
+
+<body>
+<div id="emboltura">
+    <header id='cabecera'>Mi PAcMAn <img src="img/inicio.png" height="60px"
+                                         style="position: relative; float: right; z-index: 99"></header>
+    <div style="line-height: 0; clear: both;"></div>
+    <div id="pantalla" style="position:relative;top: -27px;"></div>
+    <footer style="position:relative;top: -27px;">
+        <div>Puntos: &nbsp;<span id="puntos">0</span></div>
+        <div>Nivel: &nbsp;<span id="nivel">1</span></div>
+        <div>Alimento: &nbsp;<span id="food">0</span></div>
+        <div>Tiempo: &nbsp;<span id="tiempo_max">0</span></div>
+        <div>Tiempo Restante: &nbsp;<span id="tiempo">0</span></div>
+
+        <div style="float: right">
+            <button id="reinicia">Reinicia Juego</button>
+        </div>
+    </footer>
+</div>
+<script type="text/javascript">
+
+//    $(document).ready(function() {
+//        var snd = new Audio('snd/pacman_beginning.wav');
+//
+//        if(snd.canPlayType('audio/mp3')) {
+//            snd = new Audio('snd/Beginning_of_game_Ms_Pac_Man.mp3');
+//        }
+//        else if(snd.canPlayType('audio/ogg')) {
+//            snd = new Audio('snd/pacman_beginning.wav');
+//            //snd.loop = "loop";
+//            snd.volume = 0.8;
+//        }
+//
+//
+//        snd.play();
+//    });
+</script>
+</body>
+</html>
