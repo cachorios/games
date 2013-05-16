@@ -146,6 +146,13 @@ function PacMan(_contenedor, aTime) {
         pantalla($("#" + contenedor));
         tiempo = max_tiempo;
         foot_cnt = max_food;
+        puntos = 0;
+        nivel = 1;
+
+        jugador.cargar(posicionJugador());
+        this.phantom[0].cargar(4);
+        this.phantom[1].cargar(3);
+        this.phantom[2].cargar(1);
         this.refreshCounter();
         return this;
     }
@@ -205,6 +212,9 @@ function PacMan(_contenedor, aTime) {
     }, this.phantom[2].velocidad * 0.4);
 
 
+    tiempo = max_tiempo;
+    foot_cnt = max_food;
+
 }
 
 /**
@@ -235,10 +245,9 @@ function sleep(milliseconds) {
 
 $(document).ready(function (e) {
     miJuego = new PacMan("pantalla", {T1: funcTimer, T2: funcTimer2, T3: funcTimer3});
-    miJuego.iniciar().run();
+    miJuego.run();
 
     $("#reinicia").click(function (e) {
-
         miJuego.iniciar().run();
     });
 
