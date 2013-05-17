@@ -2,10 +2,10 @@ var M_TOP = 38, M_RIGHT = 39, M_DOWN = 40, M_LEFT = 37;
 var fondo = {tipo: 'fondo', class: 'fondo'};
 var food = {tipo: 'food', class: 'food'};
 var block = {tipo: 'block', class: 'block'};
-var max_x = 30, max_y = 18, max_block = 12, max_food = 12, max_tiempo = 30;
+var max_x = 30, max_y = 20, max_block = 12, max_food = 12, max_tiempo = 30;
 var tiempo, timer, foot_cnt;
 var miJuego;
-
+var sndInicio = AudioFX('snd/inicio', { formats: ['wav'], loop: false, volume: 0.6, autoplay: false });
 var num_azar = function (n) {
     return Math.floor((Math.random() * n) + 1)
 }
@@ -20,6 +20,7 @@ function PacMan(_contenedor, aTime) {
     var jugador = null, contenedor = _contenedor,
         puntos = 0, nivel = 1,
         audio = AudioFX('snd/fondo', { formats: ['wav'], loop: true, volume: 0.2, autoplay: true });
+        audioNext = AudioFX('snd/next', { formats: ['wav'], loop: false, volume: 0.8, autoplay: false});
 
     this.phantom = new Array();
 
@@ -34,7 +35,7 @@ function PacMan(_contenedor, aTime) {
     var ranPos = function () {
         return num_azar(max_x * max_y)
     }
-    var pantalla = function ($contenedor) {
+    this.pantalla = function ($contenedor) {
         var i = 0, html, n;
         $contenedor.html("");
         while (i++ < max_x * max_y) {
@@ -45,7 +46,7 @@ function PacMan(_contenedor, aTime) {
         i = 0;
         while (i++ < max_block) {
             n = num_azar(max_x * max_y);
-            while (getContenido(n) != 'fondo') { //Buscar una posicion libre
+            while (!(getContenido(n) == 'fondo' && n > 4)) { //Buscar una posicion libre
                 n = num_azar(max_x * max_y);
             }
             html = $("#" + n);
@@ -56,7 +57,7 @@ function PacMan(_contenedor, aTime) {
         i = 0;
         while (i++ < max_food) {
             n = num_azar(max_x * max_y);
-            while (getContenido(n) != 'fondo') { //Buscar una posicion libre
+            while (!(getContenido(n) == 'fondo' && n > 4)) { //Buscar una posicion libre
                 n = num_azar(max_x * max_y);
             }
             html = $("#" + n);
@@ -81,18 +82,30 @@ function PacMan(_contenedor, aTime) {
         puntos++;
         foot_cnt--;
         this.refreshCounter();
-        if (puntos % 12 == 0) {
-            nivel++;
+        if(foot_cnt == 0)
             this.nivelSiguiente();
-        }
     }
 
     this.nivelSiguiente = function () {
+        var obj = this;
         //todo: mensaje
-        this.iniciar()
-        jugador.cargar(posicionJugador());
-        tiempo = max_tiempo;
-        this.refreshCounter();
+        puntos += tiempo;
+        nivel++;
+        clearInterval(timer);
+        this.limpiarTimer()
+        $.msgBox({
+            title: "Siguiete nivel de PakMan",
+            content: "<br>Feliciariones!!! <br>Has pasado al siguiente nivel!!!!!!.<br><br>Y no te olvides solo tienes 30 segundos!!!<br><br> No pierdas ni un segundo!<br><br><br><br><br>",
+            type: "info",
+            beforeShow: function(){audioNext.play()},
+            timeOut: 6000,
+            showButtons: false,
+            autoClose: true,
+            afterClose: function () {
+                obj.iniciar();
+            }
+        });
+        //this.iniciar()
     }
 
     this.refreshCounter = function () {
@@ -101,15 +114,11 @@ function PacMan(_contenedor, aTime) {
         $("#tiempo").html(tiempo);
         $("#food").html(foot_cnt);
         $("#tiempo_max").html(max_tiempo);
-
     }
 
     this.run = function () {
         audio.play();
         clearInterval(timer);
-        timer = setInterval(function () {
-            myTimer()
-        }, 1000);
 
 
         $(document).unbind("keydown");
@@ -131,36 +140,61 @@ function PacMan(_contenedor, aTime) {
         });
     }
 
-    var posicionJugador = function()
-    {
+    var posicionJugador = function () {
         var medio = parseInt((max_x * max_y) / 2),
             posi = ranPos();
-            while( !(posi >= medio && getContenido(posi) =="fondo")){
-                posi = ranPos();
-            }
+        while (!(posi >= medio && getContenido(posi) == "fondo")) {
+            posi = ranPos();
+        }
 
         return posi;
     }
 
     this.iniciar = function () {
-        pantalla($("#" + contenedor));
+        this.pantalla($("#" + contenedor));
         tiempo = max_tiempo;
         foot_cnt = max_food;
-        puntos = 0;
-        nivel = 1;
 
-        jugador.cargar(posicionJugador());
+
+
+        if (jugador)
+            jugador.cargar(posicionJugador());
+        else
+            jugador = new Jugador(posicionJugador(), this);
+
+
         this.phantom[0].cargar(4);
         this.phantom[1].cargar(3);
         this.phantom[2].cargar(1);
+
+        this.limpiarTimer()
+        this.phantomInit();
+
         this.refreshCounter();
+        timer = setInterval(function () {
+            myTimer()
+        }, 1000);
         return this;
     }
 
     this.finalizado = function () {
         clearInterval(timer);
+        puntos = 0;
+        nivel = 1;
+        this.limpiarTimer();
         $(document).unbind("keydown");
-        alert("Te comieron. perdiste!!!")
+        $.msgBox({
+            title: "Uppppssssss",
+            content: "<br><br>Perdiste.<br><br>Segui jugando!!!<br>Presiona en Reiniciar Juego<br>Dale, segu&iacute;!<br><br><br><br><br>",
+            type: "info",
+            timeOut: 6000,
+            showButtons: false,
+            autoClose: true,
+            afterClose: function () {
+                obj.iniciar();
+            }
+        });
+
 
     }
 
@@ -171,8 +205,6 @@ function PacMan(_contenedor, aTime) {
     }
 
 
-    pantalla($("#" + contenedor));
-    jugador = new Jugador(posicionJugador(), this);
     //var lphantom
     this.phantom[0] = new Phantom(4, this, {
             class_inicio: 'phanA_1',
@@ -201,16 +233,21 @@ function PacMan(_contenedor, aTime) {
         }
     );
 
-    this.phantom[0].timer = setInterval(function () {
-        aTime.T1()
-    }, this.phantom[0].velocidad * 0.8);
-    this.phantom[1].timer = setInterval(function () {
-        aTime.T2()
-    }, this.phantom[1].velocidad * 0.5);
-    this.phantom[2].timer = setInterval(function () {
-        aTime.T3()
-    }, this.phantom[2].velocidad * 0.4);
+    this.phantomInit = function () {
+        this.phantom[0].velocidad *= 0.95;
+        this.phantom[1].velocidad *= 0.95;
+        this.phantom[2].velocidad *= 0.95;
 
+        this.phantom[0].timer = setInterval(function () {
+            aTime.T1()
+        }, this.phantom[0].velocidad * 0.8);
+        this.phantom[1].timer = setInterval(function () {
+            aTime.T2()
+        }, this.phantom[1].velocidad * 0.6);
+        this.phantom[2].timer = setInterval(function () {
+            aTime.T3()
+        }, this.phantom[2].velocidad * 0.5);
+    }
 
     tiempo = max_tiempo;
     foot_cnt = max_food;
@@ -245,13 +282,33 @@ function sleep(milliseconds) {
 
 $(document).ready(function (e) {
     miJuego = new PacMan("pantalla", {T1: funcTimer, T2: funcTimer2, T3: funcTimer3});
-    miJuego.run();
+    miJuego.pantalla($("#pantalla"));
+    inicio();
+
 
     $("#reinicia").click(function (e) {
+        inicio();
         miJuego.iniciar().run();
     });
 
 });
+
+var inicio = function(){
+    $.msgBox({
+        title: "INSTRUCCIONES PakMan",
+        content: "<br>Debes recoger todas las frutas antes que acabe el tiempo<br><br>Usa las flechas del teclado para manejar el PakMan.<br><br>Y solo tienes 30 segundos por ronda!!!<br><br> No pierdas ni un segundo!<br><br><br><br><br>",
+        type: "info",
+        timeOut: 4500,
+        showButtons: false,
+        autoClose: true,
+        beforeShow: function(){
+            sndInicio.play();
+        },
+        afterClose: function () {
+            miJuego.iniciar().run()
+        }
+    });
+}
 
 var myTimer = function () {
     tiempo--;
@@ -260,7 +317,7 @@ var myTimer = function () {
         clearInterval(timer);
         miJuego.limpiarTimer();
         $(document).unbind("keydown");
-        alert("Tiempo Finalizado!\n has PERDIDO!!");
+        miJuego.finalizado();
     }
 }
 

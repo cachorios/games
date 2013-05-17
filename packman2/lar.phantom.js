@@ -18,7 +18,7 @@ function Phantom(pos, parent, opciones) {
         class_left = 'phanA', class_top = 'phanA',
         class_right = 'phanA', class_down = 'phanA',
         audio = AudioFX('snd/pacman_camina', { formats: ['wav'], pool: 1, volume: 0.8 }),
-        audio_come = AudioFX('snd/pacman_death', { formats: ['wav'], pool: 2, volume: 0.3 }),
+        audio_come = AudioFX('snd/pacman_death', { formats: ['wav'], pool: 2, volume: 0.5 }),
         activo = 1, posAnterior = 0, class_anterior = fondo.class;
     this.velocidad = 800;
     this.timer = null;
@@ -85,9 +85,12 @@ function Phantom(pos, parent, opciones) {
         vy = this.getY();
         posAct = parent.getPos(vx, vy);
 
+        minPos = posAct;
+
         vx = (vx - 1 < 1 ? 1 : vx - 1);
         pos = parent.getPos(vx, vy);
-        if (getContenido(pos) != 'block' && pos != posAnterior && pos != posAct) {
+        //console.log("x y Pos ",x,y,pos);
+        if (getContenido(pos) != 'block' && getContenido(pos).substr(0,4) != 'phan' && pos != posAnterior && pos != posAct) {
             dist2 = Math.abs(toGoX - vx) + Math.abs(toGoY - vy);
             if (dist2 < dist) { //|| (dist2 = dist && num_azar(2) == 1)   ) {
                 minPos = pos;
@@ -97,9 +100,11 @@ function Phantom(pos, parent, opciones) {
         //arriba
         vx = this.getX();
         vy = this.getY();
-        vy = (--vy < 1 ? 1 : vy);
+
+        vy = (vy - 1 < 1 ? 1 : vy -1);
         pos = parent.getPos(vx, vy);
-        if (getContenido(pos) != 'block' && pos != posAnterior && pos != posAct) {
+        //console.log("x y Pos ",x,y,pos);
+        if (getContenido(pos) != 'block' && getContenido(pos).substr(0,4) != 'phan' && pos != posAnterior && pos != posAct) {
             dist2 = Math.abs(toGoX - vx) + Math.abs(toGoY - vy);
             if (dist2 < dist) { // || (dist2 = dist && num_azar(2) == 1) ) {
                 minPos = pos;
@@ -111,7 +116,8 @@ function Phantom(pos, parent, opciones) {
         vy = this.getY();
         vx = (vx + 1 >= max_x ? max_x : vx + 1);
         pos = parent.getPos(vx, vy);
-        if (getContenido(pos) != 'block' && pos != posAnterior && pos != posAct) {
+        //console.log("x y Pos ",x,y,pos);
+        if (getContenido(pos) != 'block' && getContenido(pos).substr(0,4) != 'phan' && pos != posAnterior && pos != posAct) {
             dist2 = Math.abs(toGoX - vx) + Math.abs(toGoY - vy);
             if (dist2 < dist) {
                 minPos = pos;
@@ -121,9 +127,10 @@ function Phantom(pos, parent, opciones) {
         //abajo
         vx = this.getX();
         vy = this.getY();
-        vy = (++vy >= max_y ? max_y : vy);
+        vy = (vy + 1 >= max_y ? max_y : vy + 1);
         pos = parent.getPos(vx, vy);
-        if (getContenido(pos) != 'block' && pos != posAnterior && pos != posAct) {
+        //console.log("x y Pos ",x,y,pos);
+        if (getContenido(pos) != 'block' && getContenido(pos).substr(0,4) != 'phan' && pos != posAnterior && pos != posAct) {
             dist2 = Math.abs(toGoX - vx) + Math.abs(toGoY - vy);
             if (dist2 < dist) {
                 minPos = pos;
@@ -138,15 +145,20 @@ function Phantom(pos, parent, opciones) {
         var toPos;
         toPos = this.camino(parent.getPLayer().getX(), parent.getPLayer().getY());
         posAnterior = parent.getPos(this.getX(), this.getY())
-        this.setX(parent.getX(toPos));
-        this.setY(parent.getY(toPos));
-        this.refreshMove(posAnterior, toPos, this.getClass(0));
+        //if(pos != posAnterior){
+            this.setX(parent.getX(toPos));
+            this.setY(parent.getY(toPos));
+            this.refreshMove(posAnterior, toPos, this.getClass(0));
+        //}
+
     }
 
     this.refreshMove = function (pos, toPos, classToMove) {
         var html = $("#" + pos);
         var class_res;
 
+        if(pos ==  toPos)
+            return
         class_res = getContenido(toPos);
 
         html.removeClass();
@@ -167,20 +179,13 @@ function Phantom(pos, parent, opciones) {
         class_anterior = class_res;
     }
 
-//    var ph = this;
-//    this.timer = $.timer(
-//        function() {
-//            ph.run()
-//        },
-//        ph.velocidad,
-//        true
-//    );
 
-    var cargar = function (pos) {
+    this.cargar = function (pos) {
         var html = $("#" + pos);
         x = parent.getX(pos);
         y = parent.getY(pos);
         html.removeClass();
         html.addClass(class_inicio);
-    }(pos);
+    };
+    this.cargar(pos);
 }

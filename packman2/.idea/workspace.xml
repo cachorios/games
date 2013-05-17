@@ -4,14 +4,14 @@
     <list default="true" id="ef8044cb-8e64-459c-b9a5-c8ca95af4e6f" name="Default" comment="" />
     <ignored path="packman.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/packman.js" changelist="ef8044cb-8e64-459c-b9a5-c8ca95af4e6f" time="1368730676562" ignored="false" />
+    <file path="/packman.js" changelist="ef8044cb-8e64-459c-b9a5-c8ca95af4e6f" time="1368818649923" ignored="false" />
     <file path="/packman.css" changelist="ef8044cb-8e64-459c-b9a5-c8ca95af4e6f" time="1368568530172" ignored="false" />
-    <file path="/index.html" changelist="ef8044cb-8e64-459c-b9a5-c8ca95af4e6f" time="1368630805443" ignored="false" />
+    <file path="/index.html" changelist="ef8044cb-8e64-459c-b9a5-c8ca95af4e6f" time="1368813405314" ignored="false" />
     <file path="$USER_HOME$/WebstormProjects/untitled/test.html" changelist="ef8044cb-8e64-459c-b9a5-c8ca95af4e6f" time="1368329174996" ignored="false" />
     <file path="/test.html" changelist="ef8044cb-8e64-459c-b9a5-c8ca95af4e6f" time="1368328321079" ignored="false" />
     <file path="/fragment.js" changelist="ef8044cb-8e64-459c-b9a5-c8ca95af4e6f" time="1368328559519" ignored="false" />
     <file path="/simpleplayer.css" changelist="ef8044cb-8e64-459c-b9a5-c8ca95af4e6f" time="1368500538434" ignored="false" />
-    <file path="/lar.phantom.js" changelist="ef8044cb-8e64-459c-b9a5-c8ca95af4e6f" time="1368631325494" ignored="false" />
+    <file path="/lar.phantom.js" changelist="ef8044cb-8e64-459c-b9a5-c8ca95af4e6f" time="1368814766882" ignored="false" />
     <file path="/lar.jugador.js" changelist="ef8044cb-8e64-459c-b9a5-c8ca95af4e6f" time="1368634767622" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -32,25 +32,32 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="packman.js" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="packman.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/packman.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="251" column="34" selection-start="6425" selection-end="6425" vertical-scroll-proportion="-17.68">
+            <state line="239" column="8" selection-start="6740" selection-end="6740" vertical-scroll-proportion="0.55688626">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="jquery.msgBox.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/jquery.msgBox.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="34" column="18" selection-start="903" selection-end="913" vertical-scroll-proportion="-11.12">
               <folding>
-                <element signature="e#993#1926#0" expanded="false" />
-                <element signature="e#2867#3571#0" expanded="false" />
+                <element signature="n#!!doc" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="lar.phantom.js" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="lar.phantom.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lar.phantom.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="161" column="21" selection-start="4916" selection-end="4925" vertical-scroll-proportion="0.63243246">
+            <state line="9" column="44" selection-start="255" selection-end="255" vertical-scroll-proportion="-6.12">
               <folding>
                 <element signature="n#!!doc" expanded="true" />
-                <element signature="e#2273#4128#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -59,13 +66,13 @@
       <file leaf-file-name="lar.jugador.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lar.jugador.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="108" column="83" selection-start="3165" selection-end="3165" vertical-scroll-proportion="0.0">
+            <state line="110" column="8" selection-start="3133" selection-end="3133" vertical-scroll-proportion="0.0">
               <folding>
                 <element signature="n#!!doc" expanded="true" />
-                <element signature="e#1011#1350#0" expanded="false" />
-                <element signature="e#1382#1720#0" expanded="false" />
-                <element signature="e#1754#2100#0" expanded="false" />
-                <element signature="e#2133#2477#0" expanded="false" />
+                <element signature="e#1018#1357#0" expanded="false" />
+                <element signature="e#1389#1727#0" expanded="false" />
+                <element signature="e#1761#2106#0" expanded="false" />
+                <element signature="e#2139#2483#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -83,7 +90,7 @@
       <file leaf-file-name="index.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="33" column="31" selection-start="1439" selection-end="1439" vertical-scroll-proportion="0.0">
+            <state line="19" column="32" selection-start="697" selection-end="697" vertical-scroll-proportion="-12.423077">
               <folding />
             </state>
           </provider>
@@ -92,7 +99,7 @@
       <file leaf-file-name="packman.css" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/packman.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="50" column="8" selection-start="791" selection-end="791" vertical-scroll-proportion="0.0">
+            <state line="54" column="6" selection-start="895" selection-end="900" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -111,6 +118,7 @@
         <option value="$PROJECT_DIR$/simpleplayer.css" />
         <option value="$PROJECT_DIR$/packman.css" />
         <option value="$PROJECT_DIR$/Phantom.js" />
+        <option value="$PROJECT_DIR$/jquery.msgBox.js" />
         <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/lar.phantom.js" />
         <option value="$PROJECT_DIR$/lar.jugador.js" />
@@ -176,14 +184,15 @@
   <component name="PropertiesComponent">
     <property name="options.splitter.main.proportions" value="0.2425" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="options.lastSelected" value="project.propVCSSupport.Mappings" />
     <property name="recentsLimit" value="5" />
+    <property name="options.lastSelected" value="project.propVCSSupport.Mappings" />
     <property name="FullScreen" value="false" />
-    <property name="options.splitter.details.proportions" value="0.2" />
     <property name="options.searchVisible" value="true" />
+    <property name="options.splitter.details.proportions" value="0.2" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\web\games\packman2" />
       <recent name="D:\web\games\packman2" />
     </key>
   </component>
@@ -357,13 +366,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="0" selection-start="269" selection-end="269" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/packman.css">
       <provider selected="true" editor-type-id="text-editor">
         <state line="59" column="14" selection-start="1054" selection-end="1054" vertical-scroll-proportion="0.0">
@@ -374,10 +376,7 @@
     <entry file="file://$PROJECT_DIR$/packman.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="48" column="0" selection-start="1498" selection-end="1498" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="e#993#1926#0" expanded="false" />
-            <element signature="e#2867#3571#0" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -398,10 +397,7 @@
     <entry file="file://$PROJECT_DIR$/packman.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="92" column="0" selection-start="2547" selection-end="2547" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="e#993#1926#0" expanded="false" />
-            <element signature="e#2867#3571#0" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -429,13 +425,6 @@
         <state line="22" column="28" selection-start="497" selection-end="497" vertical-scroll-proportion="0.42742857" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="33" column="31" selection-start="1439" selection-end="1439" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/jquery.timer.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="72" column="10" selection-start="2469" selection-end="2469" vertical-scroll-proportion="0.0">
@@ -445,41 +434,53 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/packman.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="50" column="8" selection-start="791" selection-end="791" vertical-scroll-proportion="0.0">
+        <state line="54" column="6" selection-start="895" selection-end="900" vertical-scroll-proportion="0.0">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="19" column="32" selection-start="697" selection-end="697" vertical-scroll-proportion="-12.423077">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lar.phantom.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="44" selection-start="255" selection-end="255" vertical-scroll-proportion="-6.12">
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/jquery.msgBox.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="34" column="18" selection-start="903" selection-end="913" vertical-scroll-proportion="-11.12">
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/lar.jugador.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="108" column="83" selection-start="3165" selection-end="3165" vertical-scroll-proportion="0.0">
+        <state line="110" column="8" selection-start="3133" selection-end="3133" vertical-scroll-proportion="0.0">
           <folding>
             <element signature="n#!!doc" expanded="true" />
-            <element signature="e#1011#1350#0" expanded="false" />
-            <element signature="e#1382#1720#0" expanded="false" />
-            <element signature="e#1754#2100#0" expanded="false" />
-            <element signature="e#2133#2477#0" expanded="false" />
+            <element signature="e#1018#1357#0" expanded="false" />
+            <element signature="e#1389#1727#0" expanded="false" />
+            <element signature="e#1761#2106#0" expanded="false" />
+            <element signature="e#2139#2483#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/packman.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="251" column="34" selection-start="6425" selection-end="6425" vertical-scroll-proportion="-17.68">
-          <folding>
-            <element signature="e#993#1926#0" expanded="false" />
-            <element signature="e#2867#3571#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lar.phantom.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="161" column="21" selection-start="4916" selection-end="4925" vertical-scroll-proportion="0.63243246">
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-            <element signature="e#2273#4128#0" expanded="false" />
-          </folding>
+        <state line="239" column="8" selection-start="6740" selection-end="6740" vertical-scroll-proportion="0.55688626">
+          <folding />
         </state>
       </provider>
     </entry>
